@@ -1,0 +1,33 @@
+using System;
+
+// Abstract class
+abstract class Vehicle
+{
+  // Abstract method (does not have a body)
+  public abstract void Engine();
+  // Regular method
+  public void Transmission()
+  {
+    Console.WriteLine("Zzz");
+  }
+}
+
+// Derived class
+class Car : Vehicle
+{
+  public override void Engine()
+  {
+    // Overrding
+    Console.WriteLine("200cc");
+  }
+}
+
+public class Program
+{
+	public static void Main()
+	{
+		Car myCar = new Car(); // 
+    	myCar.Engine();  // 
+    	myCar.Transmission();  // 
+	}
+}
