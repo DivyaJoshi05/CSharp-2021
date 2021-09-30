@@ -1,0 +1,64 @@
+using System;
+namespace practice
+  {
+	  public class Array
+      {
+		    public static void Resize<T>(ref T[] source,int newsize)
+		      {
+		        T[] temp=new T[newsize];
+			      for(int i=0; i<source.Length; i++)
+			          {
+				          temp[i]=source[i];
+			          }
+			      source=temp;
+		      }
+	    }
+  }
+public class DynamicIntegerArray<DA>
+  {
+		/*public DA value; 
+		public DynamicIntegerArray(DA value)
+		  {
+			  this.value = value;
+		  }*/
+		private DA[] buffer=new DA[5];
+		public DA this[int index]
+      {			
+			  set
+          {
+				    if (index >= buffer.Length)
+			        {
+				        Array.Resize(ref buffer, index+10);
+			        }
+			      buffer[index] = value;
+			    }
+			  get
+          {
+			      return buffer[index];
+			    }			
+		  }
+	  }
+
+public class Program
+    {        
+      public static  void Main()
+        {
+          DynamicIntegerArray<int> _intArray=new DynamicIntegerArray<int>();
+          //_intArray.Set_Item(0,10); 
+		      _intArray[0]=10;
+	      	_intArray[1] = 20;
+          _intArray[2] = 40;
+          _intArray[3] = 50;
+          _intArray[4] = 60;
+          _intArray[5] = 70;//Exception
+		      DynamicIntegerArray<char> _charArray=new DynamicIntegerArray<char>();
+          _charArray[6] = 'C';
+          _charArray[7] = '#';
+          
+          int _value = _intArray[0];
+          Console.WriteLine(_value);
+		      
+          char _value1 = _charArray[7];
+		      Console.WriteLine(_value1);
+        }
+    }
