@@ -1,0 +1,73 @@
+//Tightly Coupled Engine Example Code
+using System;
+
+public interface IEngine{
+	void Start();
+	void Stop();
+	}
+public class DiCorEngine:IEngine{
+    public void Start(){
+		Console.WriteLine("DiCorEngine Start");
+	}
+    public void Stop(){
+		Console.WriteLine("DiCorEngine Stop");
+	}
+}
+public class VeriCorEngine:IEngine{
+    public void Start(){
+		Console.WriteLine("VeriCorEngine Start");
+	}
+    public void Stop(){
+		Console.WriteLine("VeriCorEngine Stop");
+	}
+}
+public class MultiJetEngine:IEngine{
+    public void Start(){
+		Console.WriteLine("MultiJetEngine Start");
+	}
+    public void Stop(){
+		Console.WriteLine("MultiJetEngine Stop");
+	}
+}
+public class TATACar{
+	IEngine engine;
+	
+	//public TATACar
+    //DiCorEngine _diCor;
+    public TATACar(IEngine engine){
+		this.engine = engine;
+        //_diCor=new DiCorEngine();
+    }
+    public void Drive(){
+        engine.Start();
+    }
+    public void Halt(){
+        engine.Stop();
+    }
+}
+public class Program
+{
+    public static void Main()
+    {
+		IEngine Diengine = new DiCorEngine();
+		TATACar engine = new TATACar(Diengine);
+		engine.Drive();engine.Halt();
+		
+		IEngine HexaEngine = new VeriCorEngine();
+		TATACar hexa = new TATACar(HexaEngine);
+		hexa.Drive();
+		hexa.Halt();
+		
+		IEngine HarrierEngine = new MultiJetEngine();
+		TATACar harrier = new TATACar(HarrierEngine);
+		harrier.Drive();
+		harrier.Halt();
+		
+		
+		
+		
+		
+    }
+}
+
+//<-------------------------------Reformed Code --------------------------->
