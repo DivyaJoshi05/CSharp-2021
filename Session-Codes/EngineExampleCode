@@ -1,4 +1,3 @@
-//Tightly Coupled Engine Example Code
 using System;
 
 public interface IEngine{
@@ -62,12 +61,5 @@ public class Program
 		TATACar harrier = new TATACar(HarrierEngine);
 		harrier.Drive();
 		harrier.Halt();
-		
-		
-		
-		
-		
-    }
-}
-
-//<-------------------------------Reformed Code --------------------------->
+		}
+		}
