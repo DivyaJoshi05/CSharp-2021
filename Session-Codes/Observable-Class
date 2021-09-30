@@ -26,7 +26,7 @@ public class Appointment
       {
         this.status=AppointmentStatus.CONFIRMED;
         this.Notify();
-	    }
+	}
     public void Cancel()
       {
         this.status=AppointmentStatus.CANCELLED;
@@ -42,3 +42,32 @@ public class Appointment
         _notifyManager.Notify(this.status);
 	    }
    }
+public class EmailNotificationSystem{
+	public void SendEmail(){
+    		Console.WriteLine("Send Enail Observer" );
+		}
+	}
+
+
+public class SMSDeliverySystem{
+	public void SendSms(){
+    		Console.WriteLine("Send SMS Observer" );
+    		}
+	}
+
+class Customer{}
+                    
+public class Program
+{
+    public static void Main()
+{
+        Console.WriteLine("Hello World");
+        Appointment _appointment=new  Appointment();
+        _appointment.Reserve();
+        System.Threading.Tasks.Task.Delay(2000).Wait();
+        _appointment.Confirm();
+        System.Threading.Tasks.Task.Delay(2000).Wait();
+        _appointment.Cancel();
+        
+	}
+}
